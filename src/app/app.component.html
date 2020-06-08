@@ -1,22 +1,19 @@
 <nav>
   <ul class="pagination">
     <li class="page-item"
-        [ngClass]="{disabled: currentPage === 0}">
-      <a href=""
-         class="page-link"
+        [cqClass]="{disabled: currentPage === 0}">
+      <a href="" class="page-link"
          (click)="$event.preventDefault(); currentPage = currentPage - 1">Prev</a>
     </li>
-    <li *ngFor="let image of images; let i = index"
-        class="page-item"
-        [ngClass]="{active: i === currentPage}">
-      <a href=""
-         class="page-link"
-         (click)="$event.preventDefault(); currentPage = i">{{i + 1}}</a>
-    </li>
+    <ng-container *cqTimes="images.length; let i = index" class="page-item">
+      <li *ngIf="checkWindowIndex(i)" [cqClass]="{active: i === currentPage}">
+        <a href="" class="page-link"
+           (click)="$event.preventDefault(); currentPage = i">{{i + 1}}</a>
+      </li>
+    </ng-container>
     <li class="page-item"
-        [ngClass]="{disabled: currentPage === images.length - 1}">
-      <a href=""
-         class="page-link"
+        [cqClass]="{disabled: currentPage === images.length - 1}">
+      <a href="" class="page-link"
          (click)="$event.preventDefault(); currentPage = currentPage + 1">Next</a>
     </li>
   </ul>

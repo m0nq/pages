@@ -25,4 +25,8 @@ export class AppComponent {
             url: 'https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
         }
     ];
+
+    public checkWindowIndex(index: number): boolean {
+        return Math.abs(this.currentPage - index) < 5;
+    }
 }
